@@ -1696,11 +1696,12 @@ var event_render_callback = function event_render_callback(event, element) {
     element.find('.fc-title').append(icon_html);
   }
 
-  // Hover tooltip with full time and title
+  // Hover tooltip with full time, title and calendar name
   var fmt = AgenDAVDateAndTime.momentFormat[AgenDAVUserPrefs.time_format];
   var tooltip = event.allDay
     ? event.title
     : event.start.format(fmt) + ' - ' + event.end.format(fmt) + ' ' + event.title;
+  tooltip += ' - ' + get_calendar_displayname(event.calendar);
   element.attr('title', tooltip);
 
 };
